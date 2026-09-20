@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Equilíbrio Financeiro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon">🌿</div>
+      <div>
+        <h1>Meu Equilíbrio Financeiro</h1>
+        <p>Controle suas finanças através de uma conversa.</p>
+      </div>
+    </div>
+    <button id="resetDataBtn" class="btn btn-danger">Limpar dados</button>
+  </header>
+
+  <nav class="navbar" aria-label="Navegação principal">
+    <button class="nav-btn active" data-section="inicio">Início</button>
+    <button class="nav-btn" data-section="chat">Agente Financeiro</button>
+    <button class="nav-btn" data-section="resumo">Resumo Financeiro</button>
+    <button class="nav-btn" data-section="metas">Metas</button>
+    <button class="nav-btn" data-section="economia">Economia</button>
+  </nav>
+
+  <main class="main-content">
+    <section id="inicio" class="page-section active-section">
+      <div class="hero-card">
+        <span class="hero-badge">MVP • Desafio DIO</span>
+        <h2>Transformamos o controle financeiro em uma conversa natural.</h2>
+        <p>Registre gastos, receitas, acompanhe metas e receba orientações simples através de um Agente Financeiro virtual acolhedor e educativo.</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary quick-nav" data-target="chat">Conversar com o Agente</button>
+          <button class="btn btn-outline quick-nav" data-target="resumo">Ver meu resumo</button>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="card metric-card"><span class="metric-label">Receitas</span><h3 id="homeReceitas">R$ 0,00</h3></div>
+        <div class="card metric-card"><span class="metric-label">Despesas</span><h3 id="homeDespesas">R$ 0,00</h3></div>
+        <div class="card metric-card"><span class="metric-label">Saldo</span><h3 id="homeSaldo">R$ 0,00</h3></div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="card feature-card"><div class="feature-icon">💬</div><h3>Conversa natural</h3><p>Registre movimentações como se estivesse enviando uma mensagem comum.</p></div>
+        <div class="card feature-card"><div class="feature-icon">📊</div><h3>Resumo simples</h3><p>Entenda rapidamente sua situação financeira.</p></div>
+        <div class="card feature-card"><div class="feature-icon">🎯</div><h3>Metas financeiras</h3><p>Crie objetivos e acompanhe seu progresso.</p></div>
+        <div class="card feature-card"><div class="feature-icon">🌱</div><h3>Educação financeira</h3><p>Receba sugestões simples para economizar.</p></div>
+      </div>
+    </section>
+
+    <section id="chat" class="page-section">
+      <div class="section-heading">
+        <span class="eyebrow">CONVERSA</span>
+        <h2>Agente Financeiro</h2>
+        <p>Converse naturalmente. Este protótipo simula as respostas do agente com regras JavaScript.</p>
+      </div>
+      <div class="chat-layout">
+        <div class="card chat-card">
+          <div class="chat-toolbar"><strong>Agente Financeiro</strong><span class="status-dot">● online</span></div>
+          <div id="chatMessages" class="chat-messages"></div>
+          <div class="quick-prompts">
+            <button class="chip" data-message="Como estão minhas finanças este mês?">Como estão minhas finanças?</button>
+            <button class="chip" data-message="Gastei R$ 80 no mercado.">Gastei R$ 80 no mercado.</button>
+            <button class="chip" data-message="Recebi R$ 2500 de salário.">Recebi R$ 2.500 de salário.</button>
+          </div>
+          <form id="chatForm" class="chat-form">
+            <input id="chatInput" type="text" placeholder="Ex.: Gastei R$ 50 na farmácia..." autocomplete="off">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </form>
+        </div>
+
+        <aside class="card agent-info">
+          <div class="feature-icon">🌿</div>
+          <h3>Como posso ajudar?</h3>
+          <ul>
+            <li>Registrar receitas e despesas</li>
+            <li>Classificar movimentações</li>
+            <li>Consultar seu resumo</li>
+            <li>Criar e acompanhar metas</li>
+            <li>Oferecer sugestões educativas</li>
+          </ul>
+          <p class="small-note">O agente não recomenda investimentos nem substitui orientação financeira profissional.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="resumo" class="page-section">
+      <div class="section-heading">
+        <span class="eyebrow">VISÃO GERAL</span>
+        <h2>Resumo Financeiro</h2>
+        <p>Uma visão simples das movimentações registradas no protótipo.</p>
+      </div>
+      <div class="summary-grid">
+        <div class="card metric-card"><span class="metric-label">Total de receitas</span><h3 id="summaryReceitas">R$ 0,00</h3></div>
+        <div class="card metric-card"><span class="metric-label">Total de despesas</span><h3 id="summaryDespesas">R$ 0,00</h3></div>
+        <div class="card metric-card"><span class="metric-label">Saldo</span><h3 id="summarySaldo">R$ 0,00</h3></div>
+      </div>
+      <div class="two-column">
+        <div class="card">
+          <div class="card-title-row"><h3>Histórico financeiro</h3><span class="muted">Dados demonstrativos</span></div>
+          <div id="historyList" class="history-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-title-row"><h3>Principais categorias</h3></div>
+          <div id="categoryList" class="category-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="metas" class="page-section">
+      <div class="section-heading">
+        <span class="eyebrow">OBJETIVOS</span>
+        <h2>Metas Financeiras</h2>
+        <p>Crie objetivos e acompanhe o progresso de forma simples.</p>
+      </div>
+      <div class="two-column">
+        <form id="goalForm" class="card form-card">
+          <h3>Nova meta</h3>
+          <label for="goalName">Nome da meta</label>
+          <input id="goalName" required placeholder="Ex.: Viagem">
+          <label for="goalTarget">Valor desejado</label>
+          <input id="goalTarget" required type="number" min="1" step="0.01" placeholder="3000">
+          <label for="goalSaved">Valor já guardado</label>
+          <input id="goalSaved" type="number" min="0" step="0.01" value="0">
+          <label for="goalDate">Prazo (opcional)</label>
+          <input id="goalDate" type="date">
+          <button class="btn btn-primary" type="submit">Criar meta</button>
+        </form>
+        <div class="card">
+          <div class="card-title-row"><h3>Minhas metas</h3></div>
+          <div id="goalsList" class="goals-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="economia" class="page-section">
+      <div class="section-heading">
+        <span class="eyebrow">APRENDIZADO</span>
+        <h2>Sugestões de Economia</h2>
+        <p>Ideias educativas baseadas nas movimentações registradas.</p>
+      </div>
+      <div id="suggestionsList" class="suggestions-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Protótipo educacional • Meu Equilíbrio Financeiro • DIO Vibe Coding</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
